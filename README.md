@@ -2,19 +2,17 @@
 
 Package of Python integer math libraries.
 
+* [Number theory module](#number-theory)
+* [Combinatorics module](#combinatorics)
+
 Part of the "Boring Math" PyPI **bm** namespace for mathematical hobby
 projects.
-
-* [Number Theory Module](#number-theory)
-* [Combinatorics module](#combinatorics)
 
 * **Repositories**
   * [bm.integer-math][1] project on *PyPI*
   * [Source code][2] on *GitHub*
 * **Detailed documentation**
   * [Detailed API documentation][3] on *GH-Pages*
-
-## Library Modules
 
 ### Number Theory Module: 
 
