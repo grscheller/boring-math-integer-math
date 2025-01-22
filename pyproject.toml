@@ -41,7 +41,7 @@ Changelog = "https://github.com/grscheller/bm-integer-math/blob/main/CHANGELOG.m
 Documentation = "https://grscheller.github.io/boring-math-docs/integer-math"
 
 [tool.flit.sdist]
-exclude = ["dist", "docs", ".gitignore", ".mypy_cache"]
+exclude = ["dist", ".gitignore", ".mypy_cache"]
 
 [tool.pylsp-mypy]
 enabled = true

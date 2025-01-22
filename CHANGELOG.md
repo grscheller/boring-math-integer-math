@@ -13,7 +13,7 @@ PyPI grscheller.boring-math project.
 
 ### Version 0.5.0 - PyPI release date 2025-01-17
 
-* First version as bm.integer-math
+* First PyPI release as bm.integer-math
 * new doc location is
   * https://grscheller.github.io/boring-math-docs/
 

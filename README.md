@@ -1,4 +1,4 @@
-# Daddy's boring math library - integer math package
+# Boring Math Library - Integer math package
 
 Package of Python integer math libraries.
 
