@@ -14,6 +14,9 @@ projects.
 * **Detailed documentation**
   * [Detailed API documentation][3] on *GH-Pages*
 
+This project is part of the
+[Boring Math][4] **bm.** namespace project.
+
 ### Number Theory Module: 
 
 * Number Theory
@@ -52,4 +55,4 @@ projects.
 [1]: https://pypi.org/project/bm.integer-math/
 [2]: https://github.com/grscheller/bm-integer-math/
 [3]: https://grscheller.github.io/boring-math-docs/integer-math/
-
+[4]: https://github.com/grscheller/boring-math-docs
