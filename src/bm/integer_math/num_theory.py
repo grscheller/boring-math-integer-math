@@ -20,7 +20,7 @@ from __future__ import annotations
 
 from collections.abc import Iterator
 from dtools.circular_array.ca import ca, CA
-from dtools.fp.iterables import foldL1
+from dtools.fp.iterables import foldL
 
 __all__ = [ 'gcd', 'lcm', 'coprime',
             'iSqrt', 'isSqr', 'is_prime',
@@ -182,7 +182,7 @@ def is_prime(candidate: int, /) -> bool:
     if n < 2:
         return False
     if n < _test_factors or gcd(n, _test_factors) == 1:
-        return (foldL1(range(2, n), lambda j, k: j*k, 1) % n == n-1)
+        return (foldL(range(2, n), lambda j, k: j*k, 1) % n == n-1)
     else:
         return False
 

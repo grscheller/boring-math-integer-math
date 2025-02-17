@@ -20,18 +20,19 @@ from __future__ import annotations
 
 from collections.abc import Iterator
 from dtools.circular_array.ca import ca, CA
-from dtools.fp.iterables import foldL1
+from dtools.fp.iterables import foldL
 from .num_theory import coprime
 
-__all__ = [ 'comb' ]
+__all__ = [ 'comb', 'perm' ]
 
 # Combinatorics
 
 def comb(n: int, m: int, /, targetTop: int=700, targetBot: int=5) -> int:
-    """Implementation of the combinatorial `C(n,m)`
+    """Combinatorics `C(n,m)` - choose m from n.
 
-    * the number of `n` items taken `m` at a time.
+    * number of ways `m` items can be taken from `n` items.
     * geared to works efficiently for Python's arbitrary length integers
+      * slower but comparable to math.comb
     * default parameters geared to large values of `n` and `m`
     * the defaults work reasonably well for smaller (human size) values
     * for inner loops with smaller values, use `targetTop = targetBot = 1`
@@ -42,6 +43,7 @@ def comb(n: int, m: int, /, targetTop: int=700, targetBot: int=5) -> int:
     # edge cases
     if n < 0 or m < 0:
         raise ValueError('for C(n, m) n and m must be non-negative ints')
+
     if n == m or m == 0:
         return 1
     elif m > n:
@@ -80,4 +82,24 @@ def comb(n: int, m: int, /, targetTop: int=700, targetBot: int=5) -> int:
     ans = tops.foldL(lambda x, y: x * y, initial=1)
     assert ans is not None
     return ans
+
+def perm(n: int, m: int, /) -> int:
+    """Permutations `P(n,m)` - number of m orderings taken from n items.
+
+    * about 5 times slower than the math.perm C code
+      * keeping around for PyPy 3.12+
+      * currently the PyPy team is working on 3.11
+    * raises ValueError if `n < 0` or `m < 0`
+
+    """
+    # edge cases
+    if n < 0 or m < 0:
+        raise ValueError('for P(n, m) n and m must be non-negative ints')
+
+    if m > n:
+        return 0
+    elif n == 0:
+        return 1
+
+    return foldL(range(n-m+1, n+1), lambda j, k: j*k, 1)
 
