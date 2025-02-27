@@ -13,21 +13,20 @@
 # limitations under the License.
 
 """
-### Number theory library
+### Number theory library - bm.integer_math.combinatorics
 
 """
+
 from __future__ import annotations
 
-from collections.abc import Iterator
-from dtools.circular_array.ca import ca, CA
+from dtools.circular_array.ca import ca
 from dtools.fp.iterables import foldL
 from .num_theory import coprime
 
-__all__ = [ 'comb', 'perm' ]
+__all__ = ['comb', 'perm']
 
-# Combinatorics
 
-def comb(n: int, m: int, /, targetTop: int=700, targetBot: int=5) -> int:
+def comb(n: int, m: int, /, targetTop: int = 700, targetBot: int = 5) -> int:
     """Combinatorics `C(n,m)` - choose m from n.
 
     * number of ways `m` items can be taken from `n` items.
@@ -55,7 +54,7 @@ def comb(n: int, m: int, /, targetTop: int=700, targetBot: int=5) -> int:
 
     # Prepare data structures
     tops: ca[int] = ca(range(n - m + 1, n + 1))
-    bots: ca[int] = ca(range(1, m+1))
+    bots: ca[int] = ca(range(1, m + 1))
 
     # Compacting data structures makes algorithm work better for larger values
     size = len(tops)
@@ -83,6 +82,7 @@ def comb(n: int, m: int, /, targetTop: int=700, targetBot: int=5) -> int:
     assert ans is not None
     return ans
 
+
 def perm(n: int, m: int, /) -> int:
     """Permutations `P(n,m)` - number of m orderings taken from n items.
 
@@ -101,5 +101,4 @@ def perm(n: int, m: int, /) -> int:
     elif n == 0:
         return 1
 
-    return foldL(range(n-m+1, n+1), lambda j, k: j*k, 1)
-
+    return foldL(range(n - m + 1, n + 1), lambda j, k: j * k, 1)

@@ -16,18 +16,29 @@
 ### Number theory library
 
 """
+
 from __future__ import annotations
 
 from collections.abc import Iterator
-from dtools.circular_array.ca import ca, CA
+from dtools.circular_array.ca import CA
 from dtools.fp.iterables import foldL
 
-__all__ = [ 'gcd', 'lcm', 'coprime',
-            'iSqrt', 'isSqr', 'is_prime',
-            'legendre_symbol', 'jacobi_symbol',
-            'primes', 'primes_capped', 'primes_wilson' ]
+__all__ = [
+    'gcd',
+    'lcm',
+    'coprime',
+    'iSqrt',
+    'isSqr',
+    'is_prime',
+    'legendre_symbol',
+    'jacobi_symbol',
+    'primes',
+    'primes_capped',
+    'primes_wilson',
+]
 
 # Number Theory mathematical Functions.
+
 
 def gcd(m: int, n: int, /) -> int:
     """Uses Euclidean algorithm to compute the gcd of two integers.
@@ -46,6 +57,7 @@ def gcd(m: int, n: int, /) -> int:
         m, n = n, m % n
     return m
 
+
 def lcm(m: int, n: int, /) -> int:
     """Finds the least common multiple (lcm) of two integers.
 
@@ -54,7 +66,8 @@ def lcm(m: int, n: int, /) -> int:
 
     """
     m //= gcd(m, n)
-    return abs(m*n)
+    return abs(m * n)
+
 
 def coprime(m: int, n: int, /) -> tuple[int, int]:
     """Makes 2 integers coprime by dividing out their common factors.
@@ -64,7 +77,8 @@ def coprime(m: int, n: int, /) -> tuple[int, int]:
 
     """
     common = gcd(m, n)
-    return m//common, n//common
+    return m // common, n // common
+
 
 def iSqrt(n: int, /) -> int:
     """Integer square root of a non-negative integer.
@@ -83,12 +97,14 @@ def iSqrt(n: int, /) -> int:
         low = n // high
     return high
 
+
 def isSqr(n: int, /) -> bool:
     """Returns true if integer argument is a perfect square."""
-    return False if n < 0 else n == iSqrt(n)**2
+    return False if n < 0 else n == iSqrt(n) ** 2
+
 
 def legendre_symbol(a: int, p: int) -> int:
-    """ Calculate the Legendre Symbol `(a/p)`
+    """Calculate the Legendre Symbol `(a/p)`
 
     * where `(a/p)` is only defined for p an odd prime,
     * also `(a/p)` is periodic in `a` with period `p`.
@@ -102,9 +118,10 @@ def legendre_symbol(a: int, p: int) -> int:
         return 0
     else:
         for x in range(1, p):
-            if x*x % p == a:
+            if x * x % p == a:
                 return 1
         return -1
+
 
 def jacobi_symbol(a: int, n: int) -> int:
     """Calculate the Jacobi Symbol `(a/n)`.
@@ -120,7 +137,7 @@ def jacobi_symbol(a: int, n: int) -> int:
             a = a // 2
             r = n % 8
             if r == 3 or r == 5:
-               t = -t
+                t = -t
         n, a = a, n
         if n % 4 == 3 and a % 4 == 3:
             t = -t
@@ -131,7 +148,8 @@ def jacobi_symbol(a: int, n: int) -> int:
     else:
         return 0
 
-def primes_wilson(start: int=2) -> Iterator[int]:
+
+def primes_wilson(start: int = 2) -> Iterator[int]:
     """Return a prime number iterator using Wilson's Theorem.
 
     * iterator starts at `start` and is infinite.
@@ -145,12 +163,13 @@ def primes_wilson(start: int=2) -> Iterator[int]:
         fact = 1
     else:
         n = start
-        fact = CA(*range(2, n)).foldL(lambda j, k: j*k, initial=1)
-    while(True):
-        if fact % n == n-1:
+        fact = CA(*range(2, n)).foldL(lambda j, k: j * k, initial=1)
+    while True:
+        if fact % n == n - 1:
             yield n
         fact *= n
         n += 1
+
 
 def primes_capped(start: int, end: int) -> Iterator[int]:
     """Returns all primes `p` where `start <= p <= end`."""
@@ -163,7 +182,8 @@ def primes_capped(start: int, end: int) -> Iterator[int]:
         else:
             break
 
-def primes(start: int=2, end: int|None=None) -> Iterator[int]:
+
+def primes(start: int = 2, end: int | None = None) -> Iterator[int]:
     """Returns all primes `p` where `start <= p <= end`.
 
     * If `end` is not given, returned iterator is infinite.
@@ -174,7 +194,9 @@ def primes(start: int=2, end: int|None=None) -> Iterator[int]:
     else:
         return primes_capped(start, end)
 
-_test_factors = 2*3*5*7*11*13
+
+_test_factors = 2 * 3 * 5 * 7 * 11 * 13
+
 
 def is_prime(candidate: int, /) -> bool:
     """Returns true if argument is a prime number, uses Wilson's Theorem."""
@@ -182,7 +204,6 @@ def is_prime(candidate: int, /) -> bool:
     if n < 2:
         return False
     if n < _test_factors or gcd(n, _test_factors) == 1:
-        return (foldL(range(2, n), lambda j, k: j*k, 1) % n == n-1)
+        return foldL(range(2, n), lambda j, k: j * k, 1) % n == n - 1
     else:
         return False
-
