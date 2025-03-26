@@ -2,52 +2,59 @@
 
 Package of Python integer math libraries.
 
-* [Number theory module](#number-theory)
-* [Combinatorics module](#combinatorics)
+- [Number theory](#number-theory-module): `bm.integer_math.num_theory`
+- [Combinatorics](#combinatorics-module): `bm.integer_math.combinatorics`
 
-* **Repositories**
-  * [bm.integer-math][1] project on *PyPI*
-  * [Source code][2] on *GitHub*
-* **Detailed documentation**
-  * [Detailed API documentation][3] on *GH-Pages*
+## Repos and Documentation
+
+### Repositories
+
+- [bm.integer-math][1] project on *PyPI*
+- [Source code][2] on *GitHub*
+
+### Detailed documentation
+
+- [Detailed API documentation][3] on *GH-Pages*
 
 This project is part of the
 [Boring Math][4] **bm.** namespace project.
 
-### Number Theory Module: 
+## Modules
 
-* Number Theory
-  * Function **gcd**(int, int) -> int
-    * greatest common divisor of two integers
-    * always returns a non-negative number greater than 0
-  * Function **lcm**(int, int) -> int
-    * least common multiple of two integers
-    * always returns a non-negative number greater than 0
-  * Function **coprime**(int, int) -> tuple(int, int)
-    * make 2 integers coprime by dividing out gcd
-    * preserves signs of original numbers
-  * Function **iSqrt**(int) -> int
-    * integer square root
-    * same as math.isqrt
-  * Function **isSqr**(int) -> bool
-    * returns true if integer argument is a perfect square
-  * Function **primes**(start: int, end: int) -> Iterator[int]
-    * now using *Wilson's Theorem*
-  * Function **legendre_symbol**(a: int, p: int) ->datastructures int
-    * where `p > 2` is a prime number
-  * Function **jacobi_symbol**(a: int, n: int) -> int
-    * where `n > 0`
+### Number Theory Module
 
----
+- Number Theory
+  - Function **gcd**(int, int) -> int
+    - greatest common divisor of two integers
+    - always returns a non-negative number greater than 0
+  - Function **lcm**(int, int) -> int
+    - least common multiple of two integers
+    - always returns a non-negative number greater than 0
+  - Function **coprime**(int, int) -> tuple(int, int)
+    - make 2 integers coprime by dividing out gcd
+    - preserves signs of original numbers
+  - Function **iSqrt**(int) -> int
+    - integer square root
+    - same as math.isqrt
+  - Function **isSqr**(int) -> bool
+    - returns true if integer argument is a perfect square
+  - Function **primes**(start: int, end: int) -> Iterator[int]
+    - now using *Wilson's Theorem*
+  - Function **legendre_symbol**(a: int, p: int) ->datastructures int
+    - where `p > 2` is a prime number
+  - Function **jacobi_symbol**(a: int, n: int) -> int
+    - where `n > 0`
 
-### Combinatorics Module: **bm.integer_math.combinatorics**
+______________________________________________________________________
 
-* Combinatorics 
-  * Function **comb**(n: int, m: int) -> int
-    * returns number of combinations of n items taken m at a time
-    * pure integer implementation of math.comb
+### Combinatorics Module
 
----
+- Combinatorics
+  - Function **comb**(n: int, m: int) -> int
+    - returns number of combinations of n items taken m at a time
+    - pure integer implementation of math.comb
+
+______________________________________________________________________
 
 [1]: https://pypi.org/project/bm.integer-math/
 [2]: https://github.com/grscheller/bm-integer-math/
