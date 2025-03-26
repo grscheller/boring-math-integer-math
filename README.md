@@ -52,7 +52,13 @@ ______________________________________________________________________
 - Combinatorics
   - Function **comb**(n: int, m: int) -> int
     - returns number of combinations of n items taken m at a time
-    - pure integer implementation of math.comb
+    - pure Python implementation of math.comb
+      - reasonably performant
+  - Function **perm**(n: int, m: int) -> int
+    - returns number of permutations of n items taken m at a time
+    - pure Python implementation of math.perm
+      - about 5x slower than `math.perm`
+      - keeping around for PyPy 3.12+
 
 ______________________________________________________________________
 
