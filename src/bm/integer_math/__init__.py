@@ -17,8 +17,8 @@
 
 #### Modules of an integer math nature
 
-* module bm.integer_math.num_theory: number theoretic library
-* module bm.integer_math.combinatorics: combinatorics library
+- module bm.integer_math.num_theory: number theoretic library
+- module bm.integer_math.combinatorics: combinatorics library
 
 ---
 

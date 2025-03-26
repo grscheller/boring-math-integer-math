@@ -88,10 +88,10 @@ def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
 def perm(n: int, m: int, /) -> int:
     """Permutations `P(n,m)` - number of m orderings taken from n items.
 
-    * about 5 times slower than the math.perm C code
-      * keeping around for PyPy 3.12+
-      * currently the PyPy team is working on 3.11
-    * raises ValueError if `n < 0` or `m < 0`
+    - about 5 times slower than the math.perm C code
+      - keeping around for PyPy 3.12+
+      - currently the PyPy team is working on 3.11
+    - raises ValueError if `n < 0` or `m < 0`
 
     """
     # edge cases

@@ -43,11 +43,11 @@ __all__ = [
 def gcd(m: int, n: int, /) -> int:
     """Uses Euclidean algorithm to compute the gcd of two integers.
 
-    * takes two integers, returns gcd > 0
-    * note that mathematically the gcd of 0 and 0 does not exist
-    * taking `gcd(0, 0) = 1` is a better choice than `math.gcd(0, 0) = 0`
-      * eliminates lcm & coprime having to edge case test
-      * also `gcd(0, 0)` returning 1 instead of 0 more mathematically justified
+    - takes two integers, returns gcd > 0
+    - note that mathematically the gcd of 0 and 0 does not exist
+    - taking `gcd(0, 0) = 1` is a better choice than `math.gcd(0, 0) = 0`
+      - eliminates lcm & coprime having to edge case test
+      - also `gcd(0, 0)` returning 1 instead of 0 more mathematically justified
 
     """
     if 0 == m == n:
@@ -61,8 +61,8 @@ def gcd(m: int, n: int, /) -> int:
 def lcm(m: int, n: int, /) -> int:
     """Finds the least common multiple (lcm) of two integers.
 
-    * takes two integers `m` and `n`
-    * returns `lcm(m, n) > 0`
+    - takes two integers `m` and `n`
+    - returns `lcm(m, n) > 0`
 
     """
     m //= gcd(m, n)
@@ -72,8 +72,8 @@ def lcm(m: int, n: int, /) -> int:
 def coprime(m: int, n: int, /) -> tuple[int, int]:
     """Makes 2 integers coprime by dividing out their common factors.
 
-    * returns `(0, 0)` when `n = m = 0`
-    * returned coprimed values retain their original signs
+    - returns `(0, 0)` when `n = m = 0`
+    - returned coprimed values retain their original signs
 
     """
     common = gcd(m, n)
@@ -83,8 +83,8 @@ def coprime(m: int, n: int, /) -> tuple[int, int]:
 def iSqrt(n: int, /) -> int:
     """Integer square root of a non-negative integer.
 
-    * return the unique `m` such that `m*m <= n < (m+1)*(m+1)`
-    * raises: ValueError if `n < 0`
+    - return the unique `m` such that `m*m <= n < (m+1)*(m+1)`
+    - raises: ValueError if `n < 0`
 
     """
     if n < 0:
@@ -106,8 +106,8 @@ def isSqr(n: int, /) -> bool:
 def legendre_symbol(a: int, p: int) -> int:
     """Calculate the Legendre Symbol `(a/p)`
 
-    * where `(a/p)` is only defined for p an odd prime,
-    * also `(a/p)` is periodic in `a` with period `p`.
+    - where `(a/p)` is only defined for p an odd prime,
+    - also `(a/p)` is periodic in `a` with period `p`.
 
     See https://en.wikipedia.org/wiki/Legendre_symbol
     """
@@ -186,7 +186,7 @@ def primes_capped(start: int, end: int) -> Iterator[int]:
 def primes(start: int = 2, end: int | None = None) -> Iterator[int]:
     """Returns all primes `p` where `start <= p <= end`.
 
-    * If `end` is not given, returned iterator is infinite.
+    - If `end` is not given, returned iterator is infinite.
 
     """
     if end is None:
