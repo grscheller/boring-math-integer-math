@@ -20,10 +20,7 @@
 - module bm.integer_math.num_theory: number theoretic library
 - module bm.integer_math.combinatorics: combinatorics library
 
----
-
 """
-
 __version__ = '0.5.2.0'
 __author__ = 'Geoffrey R. Scheller'
 __copyright__ = 'Copyright (c) 2016-2025 Geoffrey R. Scheller'
