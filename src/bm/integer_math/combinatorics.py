@@ -19,8 +19,8 @@
 
 from __future__ import annotations
 
-from dtools.circular_array.ca import ca
-from dtools.fp.iterables import foldL
+from dtools.circular_array.ca import CA
+from dtools.fp.iterables import foldl
 from .num_theory import coprime
 
 __all__ = ['comb', 'perm']
@@ -55,32 +55,32 @@ def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
         m = n - m
 
     # Prepare data structures
-    tops: ca[int] = ca(range(n - m + 1, n + 1))
-    bots: ca[int] = ca(range(1, m + 1))
+    tops: CA[int] = CA(range(n - m + 1, n + 1))
+    bots: CA[int] = CA(range(1, m + 1))
 
     # Compacting data structures makes algorithm work better for larger values
     size = len(tops)
     while size > target_top:
         size -= 1
-        top, bot = coprime(tops.popL() * tops.popL(), bots.popL() * bots.popL())
-        tops.pushR(top)
-        bots.pushR(bot)
+        top, bot = coprime(tops.popl() * tops.popl(), bots.popl() * bots.popl())
+        tops.pushr(top)
+        bots.pushr(bot)
 
     while size > target_bot:
         size -= 1
-        bots.pushR(bots.popL() * bots.popL())
+        bots.pushr(bots.popl() * bots.popl())
 
     # Cancel all factors in denominator before multiplying the remaining factors
     # in the numerator.
     for bot in bots:
         for _ in range(len(tops)):
-            top, bot = coprime(tops.popL(), bot)
+            top, bot = coprime(tops.popl(), bot)
             if top > 1:
-                tops.pushR(top)
+                tops.pushr(top)
             if bot == 1:
                 break
 
-    ans = tops.foldL(lambda x, y: x * y, initial=1)
+    ans = tops.foldl(lambda x, y: x * y, initial=1)
     assert ans is not None
     return ans
 
@@ -104,4 +104,4 @@ def perm(n: int, m: int, /) -> int:
     if n == 0:
         return 1
 
-    return foldL(range(n - m + 1, n + 1), lambda j, k: j * k, 1)
+    return foldl(range(n - m + 1, n + 1), lambda j, k: j * k, 1)

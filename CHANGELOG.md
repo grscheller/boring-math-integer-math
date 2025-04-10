@@ -9,6 +9,14 @@ PyPI grscheller.boring-math project.
 
 ## Releases and other important milestones
 
+### Version 0.5.1 - PyPI release date 2025-04-TBD
+
+- Made compatible with latest release dltools
+  - dtools.circular-array   3.12.0
+  - dtools.fp               1.6.0
+  - dtools.queues           0.27.0
+  - dtools.tuples           0.27.0
+
 ### Version 0.5.0 - PyPI release date 2025-01-17
 
 - First PyPI release as bm.integer-math
