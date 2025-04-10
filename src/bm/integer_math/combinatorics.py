@@ -13,7 +13,7 @@
 # limitations under the License.
 
 """
-### Number theory library - bm.integer_math.combinatorics
+### Module bm.integer_math.combinatorics - combinatorics library
 
 """
 

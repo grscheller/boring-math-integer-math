@@ -13,7 +13,9 @@
 # limitations under the License.
 
 """
-### Number theory library
+### Module bm.num_theory - number theory library
+
+Collection of integer related functions useful to number theory.
 
 """
 
@@ -24,20 +26,18 @@ from dtools.circular_array.ca import CA
 from dtools.fp.iterables import foldl
 
 __all__ = [
-    'gcd',
-    'lcm',
-    'coprime',
-    'iSqrt',
-    'isSqr',
-    'is_prime',
-    'legendre_symbol',
-    'jacobi_symbol',
-    'primes',
-    'primes_capped',
-    'primes_wilson',
+    "gcd",
+    "lcm",
+    "coprime",
+    "iSqrt",
+    "isSqr",
+    "is_prime",
+    "legendre_symbol",
+    "jacobi_symbol",
+    "primes",
+    "primes_capped",
+    "primes_wilson",
 ]
-
-# Number Theory mathematical Functions.
 
 
 def gcd(m: int, n: int, /) -> int:
@@ -88,7 +88,7 @@ def iSqrt(n: int, /) -> int:
 
     """
     if n < 0:
-        msg = 'iSqrt(n): n must be non-negative'
+        msg = "iSqrt(n): n must be non-negative"
         raise ValueError(msg)
     high = n
     low = 1
