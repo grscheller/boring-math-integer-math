@@ -24,25 +24,25 @@ This project is part of the
 ### Number Theory Module
 
 - Number Theory
-  - Function **gcd**(int, int) -> int
+  - *function* gcd(int, int) -> int
     - greatest common divisor of two integers
     - always returns a non-negative number greater than 0
-  - Function **lcm**(int, int) -> int
+  - *function* lcm(int, int) -> int
     - least common multiple of two integers
     - always returns a non-negative number greater than 0
-  - Function **coprime**(int, int) -> tuple(int, int)
+  - *function* coprime(int, int) -> tuple(int, int)
     - make 2 integers coprime by dividing out gcd
     - preserves signs of original numbers
-  - Function **iSqrt**(int) -> int
+  - *function* iSqrt(int) -> int
     - integer square root
     - same as math.isqrt
-  - Function **isSqr**(int) -> bool
+  - *function* isSqr(int) -> bool
     - returns true if integer argument is a perfect square
-  - Function **primes**(start: int, end: int) -> Iterator[int]
+  - *Function* primes(start: int, end: int) -> Iterator[int]
     - now using *Wilson's Theorem*
-  - Function **legendre_symbol**(a: int, p: int) ->datastructures int
+  - *function* legendre_symbol(a: int, p: int) ->datastructures int
     - where `p > 2` is a prime number
-  - Function **jacobi_symbol**(a: int, n: int) -> int
+  - *function* jacobi_symbol(a: int, n: int) -> int
     - where `n > 0`
 
 ______________________________________________________________________
@@ -50,11 +50,11 @@ ______________________________________________________________________
 ### Combinatorics Module
 
 - Combinatorics
-  - Function **comb**(n: int, m: int) -> int
+  - *function* comb(n: int, m: int) -> int
     - returns number of combinations of n items taken m at a time
     - pure Python implementation of math.comb
       - reasonably performant
-  - Function **perm**(n: int, m: int) -> int
+  - *function* perm(n: int, m: int) -> int
     - returns number of permutations of n items taken m at a time
     - pure Python implementation of math.perm
       - about 5x slower than `math.perm`
