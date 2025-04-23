@@ -38,7 +38,7 @@ This project is part of the
     - same as math.isqrt
   - *function* isSqr(int) -> bool
     - returns true if integer argument is a perfect square
-  - *Function* primes(start: int, end: int) -> Iterator[int]
+  - *function* primes(start: int, end: int) -> Iterator[int]
     - now using *Wilson's Theorem*
   - *function* legendre_symbol(a: int, p: int) ->datastructures int
     - where `p > 2` is a prime number
