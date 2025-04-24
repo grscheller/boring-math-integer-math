@@ -41,6 +41,7 @@ tests = [
 ]
 
 [project.urls]
+Homepage = "https://github.com/grscheller/bm-docs"
 Source = "https://github.com/grscheller/bm-integer-math"
 Changelog = "https://github.com/grscheller/bm-integer-math/blob/main/CHANGELOG.md"
 Documentation = "https://grscheller.github.io/boring-math-docs/integer-math"
