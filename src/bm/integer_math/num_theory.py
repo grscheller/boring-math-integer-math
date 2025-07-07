@@ -155,11 +155,12 @@ def jacobi_symbol(a: int, n: int) -> int:
 def primes_wilson(start: int = 2) -> Iterator[int]:
     """Return a prime number iterator using Wilson's Theorem.
 
-    * iterator starts at `start` and is infinite.
+    Iterator starts at `start` and is infinite.
 
-    ##### Wilson's Theorem
+    :: note:
+        Wilson's Theorem
 
-    `∀(n>1)`, `n` is prime if and only if `(n-1)! % n = -1`
+        `∀(n>1)`, `n` is prime if and only if `(n-1)! % n = -1`
     """
     if start < 2:
         n = 2
