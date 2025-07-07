@@ -13,13 +13,17 @@
 # limitations under the License.
 
 """
-### Boring Math Library - integer mathematics
+Integer Mathematics
+-------------------
 
 Modules of an integer math nature.
 
 - module bm.integer_math.num_theory
+
   - number theoretic library
+
 - module bm.integer_math.combinatorics
+
   - combinatorics library
 
 """

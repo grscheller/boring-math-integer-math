@@ -13,31 +13,40 @@
 # limitations under the License.
 
 """
-### Module bm.integer_math.combinatorics - combinatorics library
+Combinatorics Library
+=====================
 
 """
 
 from __future__ import annotations
 
-from dtools.circular_array.ca import CA
-from dtools.fp.iterables import foldl
+from pythonic_fp.circulararray import CA
+from pythonic_fp.iterables import foldl
 from .num_theory import coprime
 
 __all__ = ['comb', 'perm']
 
 
 def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
-    """Combinatorics `C(n,m)` - choose m from n.
+    """
+    Combinatorics C(n,m)
+    --------------------
+
+    choose m from n.
 
     - number of ways `m` items can be taken from `n` items.
     - geared to works efficiently for Python's arbitrary length integers
+
       - slower but comparable to math.comb
+
     - default parameters geared to large values of `n` and `m`
     - the defaults work reasonably well for smaller (human size) values
     - for inner loops with smaller values,
+
       - use `target_top = target_bot = 1`
       - or just use `math.comb(n, m)` instead
-    - raises ValueError if `n < 0` or `m < 0`
+
+    :raises ValueError: if `n < 0` or `m < 0`
 
     """
     # edge cases
@@ -80,18 +89,23 @@ def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
             if bot == 1:
                 break
 
-    ans = tops.foldl(lambda x, y: x * y, initial=1)
-    assert ans is not None
+    ans = tops.foldl(lambda x, y: x * y, 1)
     return ans
 
 
 def perm(n: int, m: int, /) -> int:
-    """Permutations `P(n,m)` - number of m orderings taken from n items.
+    """
+    Permutations P(n,m)
+    -------------------
+
+    Number of m orderings taken from n items.
 
     - about 5 times slower than the math.perm C code
-      - keeping around for PyPy 3.12+
+
+      - keeping around for PyPy 3.12+ or Python going JIT
       - currently the PyPy team is working on 3.11
-    - raises ValueError if `n < 0` or `m < 0`
+
+    :raises ValueError: if `n < 0` or `m < 0`
 
     """
     # edge cases
