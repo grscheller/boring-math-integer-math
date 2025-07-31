@@ -12,9 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-Number Theory Library
----------------------
+"""Number Theory Library
 
 Collection of integer related functions useful to number theory.
 
@@ -23,8 +21,8 @@ Collection of integer related functions useful to number theory.
 from __future__ import annotations
 
 from collections.abc import Iterator
-from pythonic_fp.circulararray import CA
-from pythonic_fp.iterables import foldl
+from pythonic_fp.circulararray.auto import CA
+from pythonic_fp.iterables.folding import fold_left
 
 __all__ = [
     "gcd",
@@ -209,6 +207,6 @@ def is_prime(candidate: int, /) -> bool:
     if n < 2:
         return False
     if n < _test_factors or gcd(n, _test_factors) == 1:
-        return foldl(range(2, n), lambda j, k: j * k, 1) % n == n - 1
+        return fold_left(range(2, n), lambda j, k: j * k, 1) % n == n - 1
     else:
         return False

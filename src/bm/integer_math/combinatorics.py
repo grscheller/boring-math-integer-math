@@ -12,25 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-Combinatorics Library
-=====================
+"""Combinatorics Library
 
 """
 
 from __future__ import annotations
 
-from pythonic_fp.circulararray import CA
-from pythonic_fp.iterables import foldl
+from pythonic_fp.circulararray.auto import CA
+from pythonic_fp.iterables.folding import fold_left
 from .num_theory import coprime
 
 __all__ = ['comb', 'perm']
 
 
 def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
-    """
-    Combinatorics C(n,m)
-    --------------------
+    """Combinatorics C(n,m)
 
     choose m from n.
 
@@ -94,9 +90,7 @@ def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
 
 
 def perm(n: int, m: int, /) -> int:
-    """
-    Permutations P(n,m)
-    -------------------
+    """Permutations P(n,m)
 
     Number of m orderings taken from n items.
 
@@ -118,4 +112,4 @@ def perm(n: int, m: int, /) -> int:
     if n == 0:
         return 1
 
-    return foldl(range(n - m + 1, n + 1), lambda j, k: j * k, 1)
+    return fold_left(range(n - m + 1, n + 1), lambda j, k: j * k, 1)
