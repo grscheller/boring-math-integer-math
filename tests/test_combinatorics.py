@@ -13,7 +13,7 @@
 # limitations under the License.
 
 import math
-from bm.integer_math.combinatorics import comb, perm
+from boring_math.integer_math.combinatorics import comb, perm
 
 class Test_comb:
     def test_edge_cases(self) -> None:

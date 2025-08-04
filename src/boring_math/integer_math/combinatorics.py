@@ -26,23 +26,24 @@ __all__ = ['comb', 'perm']
 
 
 def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
-    """Combinatorics C(n,m)
+    """Combinatorics C(n,m) - choose m from n.
 
-    choose m from n.
-
-    - number of ways `m` items can be taken from `n` items.
+    - number of ways ``m`` items can be taken from ``n`` items.
     - geared to works efficiently for Python's arbitrary length integers
 
       - slower but comparable to math.comb
 
-    - default parameters geared to large values of `n` and `m`
+    - default parameters geared to large values of ``n`` and ``m``
     - the defaults work reasonably well for smaller (human size) values
     - for inner loops with smaller values,
 
-      - use `target_top = target_bot = 1`
-      - or just use `math.comb(n, m)` instead
+      - use ``target_top = target_bot = 1``
+      - or just use ``math.comb(n, m)`` instead
 
-    :raises ValueError: if `n < 0` or `m < 0`
+    :param n: total number of distinct items to choose from
+    :param m: number of items to choose
+    "returns: number of ways ``m`` items from ``n`` items
+    :raises ValueError: if either ``n < 0`` or ``m < 0``
 
     """
     # edge cases
@@ -90,16 +91,14 @@ def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
 
 
 def perm(n: int, m: int, /) -> int:
-    """Permutations P(n,m)
-
-    Number of m orderings taken from n items.
+    """Permutations P(n,m) - number of m orderings taken from n items.
 
     - about 5 times slower than the math.perm C code
 
       - keeping around for PyPy 3.12+ or Python going JIT
       - currently the PyPy team is working on 3.11
 
-    :raises ValueError: if `n < 0` or `m < 0`
+    :raises ValueError: if ``n < 0`` or ``m < 0``
 
     """
     # edge cases

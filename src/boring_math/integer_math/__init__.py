@@ -18,11 +18,11 @@ Integer Mathematics
 
 Modules of an integer math nature.
 
-- module bm.integer_math.num_theory
+- module boring_math.integer_math.num_theory
 
   - number theoretic library
 
-- module bm.integer_math.combinatorics
+- module boring_math.integer_math.combinatorics
 
   - combinatorics library
 

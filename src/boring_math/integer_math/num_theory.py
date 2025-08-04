@@ -42,12 +42,16 @@ __all__ = [
 def gcd(m: int, n: int, /) -> int:
     """Uses Euclidean algorithm to compute the gcd of two integers.
 
-    - takes two integers, returns gcd > 0
-    - note that mathematically the gcd of 0 and 0 does not exist
-    - taking `gcd(0, 0) = 1` is a better choice than `math.gcd(0, 0) = 0`
+    .. note::
+        - mathematically the gcd of 0 and 0 does not exist
+        - taking ``gcd(0, 0) = 1`` is a better choice than ``math.gcd(0, 0) = 0``
 
-      - eliminates lcm & coprime having to edge case test
-      - also `gcd(0, 0)` returning 1 instead of 0 more mathematically justified
+            - eliminates lcm & coprime functions having to edge case test
+            - also ``gcd(0, 0)`` returning 1 instead of 0 more mathematically justified
+
+    :param m: first int for gcd calculation
+    :param n: second int for gcd calculation
+    :returns: gcd of the absolute values of ``m`` and ``n``
 
     """
     if 0 == m == n:
@@ -59,10 +63,11 @@ def gcd(m: int, n: int, /) -> int:
 
 
 def lcm(m: int, n: int, /) -> int:
-    """Finds the least common multiple (lcm) of two integers.
+    """Find the least common multiple (lcm) of two integers.
 
-    - takes two integers `m` and `n`
-    - returns `lcm(m, n) > 0`
+    :param m: first int for lcm calculation
+    :param n: second int for lcm calculation
+    :returns: lcm of the absolute values of ``m`` and ``n``
 
     """
     m //= gcd(m, n)
@@ -72,9 +77,9 @@ def lcm(m: int, n: int, /) -> int:
 def coprime(m: int, n: int, /) -> tuple[int, int]:
     """Makes 2 integers coprime by dividing out their common factors.
 
-    Returned coprimed values retain their original signs
-
-    :returns `(0, 0)` when `n = m = 0`
+    :param m: first int for coprime calculation
+    :param n: second int for coprime calculation
+    :returns: coprimed values with original signs, ``(0, 0)`` when ``n = m = 0``
 
     """
     common = gcd(m, n)
@@ -84,8 +89,9 @@ def coprime(m: int, n: int, /) -> tuple[int, int]:
 def iSqrt(n: int, /) -> int:
     """Integer square root of a non-negative integer.
 
-    :return: the unique `m` such that `m*m <= n < (m+1)*(m+1)`
-    :raises ValueError: if `n < 0`
+    :param n: integer whose integer square root is to be found
+    :returns: the unique ``m`` such that ``m*m <= n < (m+1)*(m+1)``
+    :raises ValueError: if ``n < 0``
 
     """
     if n < 0:
@@ -100,19 +106,31 @@ def iSqrt(n: int, /) -> int:
 
 
 def isSqr(n: int, /) -> bool:
-    """Returns true if integer argument is a perfect square."""
+    """Determine if argument is a perfect square.
+
+    :param n: integer to check
+    :returns: true only if integer argument is a perfect square
+
+    """
     return False if n < 0 else n == iSqrt(n) ** 2
 
 
 def legendre_symbol(a: int, p: int) -> int:
-    """Calculate the Legendre Symbol `(a/p)`
+    """Calculate the Legendre Symbol ``(a/p)`` where p is an odd prime.
 
-    - where `(a/p)` is only defined for p an odd prime,
-    - also `(a/p)` is periodic in `a` with period `p`.
+    .. info::
+        See https://en.wikipedia.org/wiki/Legendre_symbol
 
-    See https://en.wikipedia.org/wiki/Legendre_symbol
+    :param a: any integer
+    :param p: any prime ``p > 2``, does not check that ``p`` is actually prime
+    :returns: the Legendre Symbol ``(a/p) ∈ {-1, 0, 1}``
+    :raises ValueError: if ``abs(p) < 3``
+
     """
-    assert p > 2  # and prime!
+    p = abs(p)
+    if p < 3:
+        msg = 'p must be a prime greater than 2'
+        raise ValueError(msg)
     a = a % p
 
     if a == 0:
@@ -125,11 +143,21 @@ def legendre_symbol(a: int, p: int) -> int:
 
 
 def jacobi_symbol(a: int, n: int) -> int:
-    """Calculate the Jacobi Symbol `(a/n)`.
+    """Calculate the Jacobi Symbol ``(a/n)``.
 
-    See https://en.wikipedia.org/wiki/Jacobi_symbol
+    .. info::
+
+        See https://en.wikipedia.org/wiki/Jacobi_symbol
+
+    :param a: any integer
+    :param n: any positive odd integer
+    :returns: the Jacobi Symbol ``(a/p) ∈ {-1, 0, 1}``
+    :raises ValueError: if ``n`` is not a positive odd integer
+
     """
-    assert n > 0 and n % 2 == 1
+    if n <= 0 or n % 2 == 0:
+        msg = 'n must be a positive odd integer'
+        raise ValueError(msg)
 
     a = a % n
     t = 1
@@ -153,12 +181,14 @@ def jacobi_symbol(a: int, n: int) -> int:
 def primes_wilson(start: int = 2) -> Iterator[int]:
     """Return a prime number iterator using Wilson's Theorem.
 
-    Iterator starts at `start` and is infinite.
+    .. note::
 
-    :: note:
-        Wilson's Theorem
+        Wilson's Theorem:
+       ``∀(n>1)``, ``n`` is prime if and only if ``(n-1)! % n ≡ -1``
 
-        `∀(n>1)`, `n` is prime if and only if `(n-1)! % n = -1`
+    :param start: first value to check, defaults to 2
+    :returns: an infinite iterator of prime numbers
+
     """
     if start < 2:
         n = 2
@@ -174,7 +204,13 @@ def primes_wilson(start: int = 2) -> Iterator[int]:
 
 
 def primes_capped(start: int, end: int) -> Iterator[int]:
-    """Returns all primes `p` where `start <= p <= end`."""
+    """Yield all primes ```p``` where ``start <= p <= end``.
+
+    :param start: first value to check
+    :param start: last value to check
+    :returns: an iterator of all primes ``p`` where ``start <= p <= end``.
+
+    """
     for ii in primes_wilson(start):
         if ii < end:
             yield ii
@@ -186,10 +222,13 @@ def primes_capped(start: int, end: int) -> Iterator[int]:
 
 
 def primes(start: int = 2, end: int | None = None) -> Iterator[int]:
-    """Returns all primes `p` where `start <= p <= end`.
+    """Yield all primes ``p`` where ``start <= p <= end``.
 
-    :: warning:
-        If `end` is not given, returned iterator is infinite.
+    .. warning::
+        If ``end`` is not given, returned iterator is infinite.
+
+    :param start: first value to check, defaults to 2
+    :returns: an iterator of all primes ``p`` where ``start <= p <= end``
 
     """
     if end is None:
@@ -198,15 +237,18 @@ def primes(start: int = 2, end: int | None = None) -> Iterator[int]:
         return primes_capped(start, end)
 
 
-_test_factors = 2 * 3 * 5 * 7 * 11 * 13
+def is_prime(n: int, /) -> bool:
+    """Test if argument is a prime number, uses Wilson's Theorem.
 
+    :param n: integer to check if prime
+    :returns: true only if ``n`` is prime
 
-def is_prime(candidate: int, /) -> bool:
-    """Returns true if argument is a prime number, uses Wilson's Theorem."""
-    n = abs(candidate)
+    """
+    _test_factors = 2 * 3 * 5 * 7 * 11 * 13 * 17
+
+    n = abs(n)
     if n < 2:
         return False
     if n < _test_factors or gcd(n, _test_factors) == 1:
         return fold_left(range(2, n), lambda j, k: j * k, 1) % n == n - 1
-    else:
-        return False
+    return False
