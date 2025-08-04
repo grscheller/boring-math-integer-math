@@ -14,6 +14,10 @@ See [Semantic Versioning 2.0.0](https://semver.org).
 
 ## Releases and other important milestones
 
+### Version 1.0.2 - PyPI release date 2025-08-04
+
+Bad circulararray requirement in pyproject.toml
+
 ### Version 1.0.0 - PyPI release date 2025-08-04
 
 After some flaying and several releases I finally got things settled
