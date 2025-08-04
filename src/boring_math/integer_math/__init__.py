@@ -18,7 +18,7 @@ Integer Mathematics
 
 Modules of an integer math nature.
 
-- module boring_math.integer_math.num_theory
+- module boring_math.integer_math.number_theory
 
   - number theoretic library
 

@@ -14,6 +14,15 @@ See [Semantic Versioning 2.0.0](https://semver.org).
 
 ## Releases and other important milestones
 
+### Version 1.0.0 - PyPI release date 2025-08-04
+
+After some flaying and several releases I finally got things settled
+down with a 0.8.2 release. I updated docstrings to reflect a name
+change, integer_math.num_theory -> integer_math.number_theory and
+never made the change! Everything worked but the docstring had wrong
+info. After making the changes and running pytest tests, I realized
+I made an API breaking change. Sorry...
+
 ### Version 0.7.1 - PyPI release date 2025-07-14
 
 - Fixed munged CHANGELOG and Documentation links for PyPI

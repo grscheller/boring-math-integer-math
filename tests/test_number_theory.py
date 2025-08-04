@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from boring_math.integer_math.num_theory import gcd, lcm, coprime
-from boring_math.integer_math.num_theory import is_prime, primes, primes_wilson
-from boring_math.integer_math.num_theory import legendre_symbol, jacobi_symbol
+from boring_math.integer_math.number_theory import gcd, lcm, coprime
+from boring_math.integer_math.number_theory import is_prime, primes, primes_wilson
+from boring_math.integer_math.number_theory import legendre_symbol, jacobi_symbol
 
 class Test_simple_ones:
     def test_gcd(self)-> None:

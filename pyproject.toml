@@ -1,6 +1,6 @@
 [project]
 name = "boring-math-integer-math"
-version = "0.8.2"
+version = "1.0.0"
 readme = "README.rst"
 requires-python = ">=3.12"
 license = { file = "LICENSE" }

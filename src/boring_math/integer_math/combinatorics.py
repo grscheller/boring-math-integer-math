@@ -20,7 +20,7 @@ from __future__ import annotations
 
 from pythonic_fp.circulararray.auto import CA
 from pythonic_fp.iterables.folding import fold_left
-from .num_theory import coprime
+from .number_theory import coprime
 
 __all__ = ['comb', 'perm']
 
