@@ -1,6 +1,6 @@
 [project]
 name = "boring-math-integer-math"
-version = "1.0.0"
+version = "1.0.1"
 readme = "README.rst"
 requires-python = ">=3.12"
 license = { file = "LICENSE" }
@@ -27,7 +27,7 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "pythonic-fp.circular-array>=5.3.0",
+  "pythonic-fp.circulararray>=5.3.0",
   "pythonic-fp.fptools>=5.0.0",
   "pythonic-fp.iterables>=5.0.0",
 ]
