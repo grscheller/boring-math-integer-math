@@ -5,19 +5,19 @@ Package of Python integer math libraries.
 - [Number theory](#number-theory-module): `bm.integer_math.num_theory`
 - [Combinatorics](#combinatorics-module): `bm.integer_math.combinatorics`
 
+This project is part of the
+[Boring Math][1] **boring.math** namespace project.
+
 ## Repos and Documentation
 
 ### Repositories
 
-- [bm.integer-math][1] project on *PyPI*
-- [Source code][2] on *GitHub*
+- [boring_math-integer-math][2] project on *PyPI*
+- [Source code][3] on *GitHub*
 
 ### Detailed documentation
 
-- [Detailed API documentation][3] on *GH-Pages*
-
-This project is part of the
-[Boring Math][4] **bm.** namespace project.
+- [Detailed API documentation][4] on *GH-Pages*
 
 ## Modules
 
@@ -62,7 +62,7 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-[1]: https://pypi.org/project/bm.integer-math/
-[2]: https://github.com/grscheller/bm-integer-math/
-[3]: https://grscheller.github.io/boring-math-docs/integer-math/
-[4]: https://github.com/grscheller/boring-math-docs
+[1]: https://github.com/grscheller/boring-math/README.md
+[2]: https://pypi.org/project/boring_math-integer-math/
+[3]: https://github.com/grscheller/boring-math-integer-math/
+[4]: https://grscheller.github.io/boring-math/integer-math/development/build/html/
