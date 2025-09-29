@@ -18,24 +18,23 @@ Collection of integer related functions useful to number theory.
 
 """
 
-from __future__ import annotations
-
 from collections.abc import Iterator
+from typing import Final
 from pythonic_fp.circulararray.auto import CA
 from pythonic_fp.iterables.folding import fold_left
 
 __all__ = [
-    "gcd",
-    "lcm",
-    "coprime",
-    "iSqrt",
-    "isSqr",
-    "is_prime",
-    "legendre_symbol",
-    "jacobi_symbol",
-    "primes",
-    "primes_capped",
-    "primes_wilson",
+    'gcd',
+    'lcm',
+    'coprime',
+    'iSqrt',
+    'isSqr',
+    'is_prime',
+    'legendre_symbol',
+    'jacobi_symbol',
+    'primes',
+    'primes_capped',
+    'primes_wilson',
 ]
 
 
@@ -95,7 +94,7 @@ def iSqrt(n: int, /) -> int:
 
     """
     if n < 0:
-        msg = "iSqrt(n): n must be non-negative"
+        msg = 'iSqrt(n): n must be non-negative'
         raise ValueError(msg)
     high = n
     low = 1
@@ -184,7 +183,7 @@ def primes_wilson(start: int = 2) -> Iterator[int]:
     .. note::
 
         Wilson's Theorem:
-       ``∀(n>1)``, ``n`` is prime if and only if ``(n-1)! % n ≡ -1``
+        ``∀(n>1)``, ``n`` is prime if and only if ``(n-1)! % n ≡ -1``
 
     :param start: first value to check, defaults to 2
     :returns: an infinite iterator of prime numbers
@@ -225,6 +224,7 @@ def primes(start: int = 2, end: int | None = None) -> Iterator[int]:
     """Yield all primes ``p`` where ``start <= p <= end``.
 
     .. warning::
+
         If ``end`` is not given, returned iterator is infinite.
 
     :param start: first value to check, defaults to 2
@@ -244,11 +244,28 @@ def is_prime(n: int, /) -> bool:
     :returns: true only if ``n`` is prime
 
     """
-    _test_factors = 2 * 3 * 5 * 7 * 11 * 13 * 17
+    _factors:Final[int]=2*3*5*7*11*13*17
 
-    n = abs(n)
-    if n < 2:
+    if (n := abs(n)) < 2:
         return False
-    if n < _test_factors or gcd(n, _test_factors) == 1:
-        return fold_left(range(2, n), lambda j, k: j * k, 1) % n == n - 1
-    return False
+
+    if n >= _factors:
+        if gcd(n, _factors) > 1:
+            return False
+
+    if n < _factors:
+        return (
+            fold_left(
+                range(2, n),
+                lambda j, k: j * k,
+                1,
+            ) % n == n - 1
+        )
+    else:
+        return (
+            fold_left(
+                range(_factors, n),
+                lambda j, k: j * k,
+                _factors,
+            ) % n == n - 1
+        )

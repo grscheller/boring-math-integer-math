@@ -12,11 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Combinatorics Library
-
-"""
-
-from __future__ import annotations
+"""Combinatorics Library"""
 
 from pythonic_fp.circulararray.auto import CA
 from pythonic_fp.iterables.folding import fold_left
