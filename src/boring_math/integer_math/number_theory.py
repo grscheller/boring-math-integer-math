@@ -117,7 +117,8 @@ def isSqr(n: int, /) -> bool:
 def legendre_symbol(a: int, p: int) -> int:
     """Calculate the Legendre Symbol ``(a/p)`` where p is an odd prime.
 
-    .. info::
+    .. note::
+
         See https://en.wikipedia.org/wiki/Legendre_symbol
 
     :param a: any integer
@@ -144,7 +145,7 @@ def legendre_symbol(a: int, p: int) -> int:
 def jacobi_symbol(a: int, n: int) -> int:
     """Calculate the Jacobi Symbol ``(a/n)``.
 
-    .. info::
+    .. note::
 
         See https://en.wikipedia.org/wiki/Jacobi_symbol
 

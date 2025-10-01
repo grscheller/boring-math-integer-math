@@ -22,7 +22,7 @@ __all__ = ['comb', 'perm']
 
 
 def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
-    """Combinatorics C(n,m) - choose m from n.
+    """C(n,m) - choose m from n.
 
     - number of ways ``m`` items can be taken from ``n`` items.
     - geared to works efficiently for Python's arbitrary length integers
@@ -38,7 +38,7 @@ def comb(n: int, m: int, /, target_top: int = 700, target_bot: int = 5) -> int:
 
     :param n: total number of distinct items to choose from
     :param m: number of items to choose
-    "returns: number of ways ``m`` items from ``n`` items
+    :returns: number of ways to choose ``m`` items from ``n`` items
     :raises ValueError: if either ``n < 0`` or ``m < 0``
 
     """
