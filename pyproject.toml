@@ -1,18 +1,13 @@
 [project]
 name = "boring-math-integer-math"
-version = "1.1.0"
+version = "2.0.0"
 readme = "README.rst"
 requires-python = ">=3.13"
 license = { file = "LICENSE" }
 authors = [{ name = "Geoffrey R. Scheller", email = "geoffrey@scheller.com" }]
 keywords = [
-  "comb",
-  "combinations",
-  "combinatorics",
   "gcd",
-  "integer",
   "lcm",
-  "math",
   "number-theory",
   "primes",
 ]
@@ -28,13 +23,12 @@ classifiers = [
 ]
 dependencies = [
   "pythonic-fp-circulararray>=5.3.2",
-  "pythonic-fp-fptools>=5.1.1",
   "pythonic-fp-iterables>=5.1.1",
 ]
 dynamic = ["description"]
 
 [project.urls]
-Changelog = "https://github.com/grscheller/boring-math-integer-math/blob/main/CHANGELOG.rst"
+Changelog = "https://github.com/grscheller/boring-math-integer-math/blob/main/CHANGELOG.md"
 Documentation = "https://grscheller.github.io/boring-math/integer-math/development/build/html/"
 Homepage = "https://grscheller.github.io/boring-math/homepage/build/html"
 Source = "https://github.com/grscheller/boring-math-integer-math"

@@ -1,6 +1,6 @@
 # CHANGELOG
 
-PyPI grscheller.boring-math project.
+PyPI boring-math-integer-math project.
 
 ## Semantic Versioning
 
@@ -13,6 +13,16 @@ Strict 3 digit semantic versioning.
 See [Semantic Versioning 2.0.0](https://semver.org).
 
 ## Releases and other important milestones
+
+### Update - 2025-10-08
+
+Broke out combinatorics library (all two functions)
+to its own GitHub repo: boring-math-combinatorics
+
+Eventually boring-math-integer-math will be renamed
+to boring-math-number-theory.
+
+Both are part of my Boring Math hobby projects.
 
 ### Version 1.0.2 - PyPI release date 2025-08-04
 

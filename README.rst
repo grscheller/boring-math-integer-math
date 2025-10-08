@@ -5,14 +5,13 @@ PyPI project
 `boring-math-integer-math
 <https://pypi.org/project/boring-math-integer-math>`_.
 
-Python module implementing two integer oriented math libraries.
+Python module implementing a number theory module.
 
 - number theory module: ``boring_math.integer_math.number_theory``
-- combinatorics module: ``boring_math.integer_math.combinatorics``
 
-This PyPI project is part of of the grscheller
-`boring-math namespace projects
-<https://github.com/grscheller/boring-math/blob/main/README.md>`_
+This PyPI project is part of the
+`Boring Math
+<https://github.com/grscheller/boring-math/blob/main/README.md>`_ projects.
 
 Documentation
 -------------
