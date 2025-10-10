@@ -1,6 +1,6 @@
 [project]
 name = "boring-math-integer-math"
-version = "2.0.0"
+version = "1.2.0"
 readme = "README.rst"
 requires-python = ">=3.13"
 license = { file = "LICENSE" }
@@ -12,7 +12,7 @@ keywords = [
   "primes",
 ]
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 7 - Inactive",
   "Framework :: Pytest",
   "Intended Audience :: Education",
   "Intended Audience :: Science/Research",
@@ -29,7 +29,7 @@ dynamic = ["description"]
 
 [project.urls]
 Changelog = "https://github.com/grscheller/boring-math-integer-math/blob/main/CHANGELOG.md"
-Documentation = "https://grscheller.github.io/boring-math/integer-math/development/build/html/"
+Documentation = "https://grscheller.github.io/boring-math/integer-math/v1.1.0/build/html/"
 Homepage = "https://grscheller.github.io/boring-math/homepage/build/html"
 Source = "https://github.com/grscheller/boring-math-integer-math"
 

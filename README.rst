@@ -1,13 +1,20 @@
 Boring Math - Integer Math
 ==========================
 
+DEPRECATED!!!
+-------------
+
+**Effort has been divided between the boring-math-combinatorics
+and boring-math-number-theory PyPI projects.**
+
 PyPI project
 `boring-math-integer-math
 <https://pypi.org/project/boring-math-integer-math>`_.
 
-Python module implementing a number theory module.
+Python module implementing two integer oriented math libraries.
 
-- number theory module: ``boring_math.integer_math.number_theory``
+- number theory module: boring_math.integer_math.number_theory
+- combinatorics module: boring_math.integer_math.combinatorics
 
 This PyPI project is part of the
 `Boring Math
